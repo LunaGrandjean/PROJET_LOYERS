@@ -3,3 +3,15 @@ Les données traitées sont issues de la page suivante : https://www.data.gouv.f
 Notre question de recherche est : quels facteurs environnementaux et socio-économiques sont liés aux différences de montants des loyers en France entre 2014 et 2022 ? Il s'agit de considérer la France en général, pas seulement la France métropolitaine.
 
 Le code suivant a été utilisé pour créer notre environnement virtuel :
+#!/bin/bash
+
+# Créez un nouvel environnement virtuel Conda
+conda create -n myenv python=3.8
+
+# Activez l'environnement virtuel
+conda activate myenv
+
+# Installez les bibliothèques nécessaires
+conda install pandas matplotlib seaborn jupyter
+
+# Affichez un message indiquant que l'installation est terminée
