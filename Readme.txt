@@ -15,3 +15,4 @@ conda activate myenv
 conda install pandas matplotlib seaborn jupyter
 
 # Affichez un message indiquant que l'installation est terminée
+echo "L'environnement virtuel a été créé et les bibliothèques ont été installées."
