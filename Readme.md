@@ -3,7 +3,9 @@ This project concerns the analysis of French data provided by the various rent o
 
 # Download 
 https://www.data.gouv.fr/fr/datasets/resultats-nationaux-des-observatoires-locaux-des-loyers/#/resources 
-Notre question de recherche est : quels facteurs environnementaux et socio-économiques sont liés aux différences de montants des loyers en France entre 2014 et 2022 ? Il s'agit de considérer la France en général, pas seulement la France métropolitaine.
+
+# Research question
+Our research question is: what environmental and socio-economic factors are linked to the differences in rental amounts in France between 2014 and 2022? It is a question of considering France.
 
 # Conda environment 
 run the "configuration.sh" script
