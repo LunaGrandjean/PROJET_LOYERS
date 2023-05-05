@@ -13,7 +13,7 @@ conda install matplotlib
 conda install seaborn
 conda install jupyter
 conda install chardet
-conda install pandas-profiling
+conda install pandas-profiling=3.1.0
 conda install glob2
 
 # Affichez un message indiquant que l'installation est terminée
