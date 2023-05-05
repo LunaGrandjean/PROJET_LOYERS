@@ -5,7 +5,7 @@ This project concerns the analysis of French data provided by the various rent o
 https://www.data.gouv.fr/fr/datasets/resultats-nationaux-des-observatoires-locaux-des-loyers/#/resources 
 
 # Research question
-Our research question is: what environmental and socio-economic factors are linked to the differences in rental amounts in France between 2014 and 2022? It is a question of considering France.
+Our research question is: what environmental, socio-economic and structural factors are linked to the differences in rental amounts in France between 2014 and 2022?​
 
 # Conda environment 
 run the "configuration.sh" script
