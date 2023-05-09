@@ -1,23 +1,11 @@
-#!/bin/bash
-
-# Créez un nouvel environnement virtuel Conda
+# Créer un nouvel environnement virtuel Conda
 conda create -n myenv python=3.8
 
-# Activez l'environnement virtuel
-source $(conda info --base)/etc/profile.d/conda.sh
+# Activer l'environnement virtuel
 conda activate myenv
 
-# Installez les bibliothèques nécessaires
-conda install pandas
-conda install matplotlib
-conda install seaborn
-conda install jupyter
-conda install chardet
-conda install pandas-profiling=3.1.0
-conda install glob2
+# Installer les bibliothèques nécessaires
+conda install pandas=2.0.1 ydata_profiling=4.1.2 glob=3.11.3
 
-# Affichez un message indiquant que l'installation est terminée
-echo "L'environnement virtuel a été créé et les bibliothèques suivantes ont été installées :"
-
-# Affichez les bibliothèques installées en colonne
-conda list | awk '{print $1}' | column
+# Afficher un message indiquant que l'installation est terminée
+echo "L'environnement virtuel a été créé et les bibliothèques ont été installées."
