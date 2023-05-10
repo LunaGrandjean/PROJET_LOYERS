@@ -50,6 +50,8 @@ def clean_and_filter_columns(df: pd.DataFrame) -> pd.DataFrame:
                                                                                           regex=True).str.strip()
     df['epoque_construction_homogene'] = df['epoque_construction_homogene'].str.replace(r'\d+. ', '', regex=True)
 
+    df["nombre_pieces_homogene"] = df["nombre_pieces_homogene"].replace(r' et plus', '+', regex=True)
+
     valid_values = ['Avant 1946', 'Entre 1946-1970', 'Entre 1971-1990', 'Entre 1991-2005', 'Après 2005']
     df = df[df['epoque_construction_homogene'].isin(valid_values) | df['epoque_construction_homogene'].isna()]
 
