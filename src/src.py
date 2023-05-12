@@ -1,4 +1,4 @@
-import glob
+from glob import glob
 import pandas as pd
 from typing import List
 
@@ -6,21 +6,18 @@ from typing import List
 def load_and_concatenate_csv_files(file_pattern: str) -> pd.DataFrame:
     """
     Charge et concatène les fichiers CSV correspondant au motif de fichier donné.
-    
+
     :param file_pattern: str, motif du fichier à rechercher (ex: "Base_OP_*_Nationale.csv").
     :return: DataFrame, DataFrame combiné contenant toutes les données des fichiers CSV correspondants.
     """
-    files = glob.glob(file_pattern)
+    files = glob(file_pattern)
 
-    all_dataframes = []
-
-    for file_name in files:
-        df = pd.read_csv(file_name, encoding='ISO-8859-1', sep=';')
-        all_dataframes.append(df)
+    all_dataframes = [pd.read_csv(file_name, encoding='ISO-8859-1', sep=';')
+    for file_name in files]
 
     # Concaténer tous les dataframes
     combined_df = pd.concat(all_dataframes, ignore_index=True)
-    
+
     return combined_df
 
 
