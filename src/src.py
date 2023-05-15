@@ -1,6 +1,5 @@
 from glob import glob
 import pandas as pd
-from typing import List
 
 
 def load_and_concatenate_csv_files(file_pattern: str) -> pd.DataFrame:
@@ -55,14 +54,14 @@ def clean_and_filter_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def clean_and_remove_other_values(df: pd.DataFrame, column: str, valid_values: List[str]) -> pd.DataFrame:
+def clean_and_remove_other_values(df: pd.DataFrame, column: str, valid_values: list) -> pd.DataFrame:
     """
     Nettoie et supprime les lignes avec des valeurs autres que celles spécifiées dans 'valid_values'
     pour la colonne spécifiée.
 
     :param df: pd.DataFrame, le DataFrame d'origine.
     :param column: str, le nom de la colonne à nettoyer et filtrer.
-    :param valid_values: List[str], une liste de valeurs valides pour la colonne spécifiée.
+    :param valid_values: list, une liste de valeurs valides pour la colonne spécifiée.
     :return: pd.DataFrame, le DataFrame avec la colonne nettoyée et les lignes non valides supprimées.
     """
     df_copy = df.copy()
@@ -94,28 +93,15 @@ def process_grouped_data(df: pd.DataFrame, excluded_value: str, groupby_column: 
 
     return grouped
 
-
-def load_and_process_complementary_dataframe(file_path: str) -> pd.DataFrame:
+def load_and_process_dataframe_temperature(file_path: str) -> pd.DataFrame:
     """
     Charge et traite le DataFrame complémentaire en renommant certaines colonnes.
 
     :param file_path: str, chemin du fichier CSV à charger.
     :return: pd.DataFrame, le DataFrame complémentaire traité.
     """
-    df_complementary = pd.read_csv(file_path, sep=';')
-    df_complementary.rename(columns={"TMin (°C)": "TMin", "TMax (°C)": "TMax", "TMoy (°C)": "TMoy"}, inplace=True)
-
-    return df_complementary
-
-
-def select_departments(df: pd.DataFrame, department_codes: List[str]) -> pd.DataFrame:
-    """
-    Sélectionne les lignes d'un DataFrame en fonction des codes de département.
-
-    :param df: pd.DataFrame, le DataFrame à filtrer.
-    :param department_codes: List[str], une liste de codes de département à sélectionner.
-    :return: pd.DataFrame, un nouveau DataFrame contenant uniquement les lignes avec les codes de département sélectionnés.
-    """
-    df_selection = df[df['Code INSEE département'].isin(department_codes)]
-
-    return df_selection
+    df_temperature = pd.read_csv(file_path, sep=';')
+    df_temperature.rename(columns={"TMin (°C)": "TMin", "TMax (°C)": "TMax", "TMoy (°C)": "TMoy"}, inplace=True)
+    
+    #We only consider dates before 2023, so dates between 2014 and 2022
+    return df_temperature[df_temperature.Date<"2023"]
