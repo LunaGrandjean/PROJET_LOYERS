@@ -12,4 +12,4 @@ How are location, wage levels and structural factors related to rent amounts in 
 run the "configuration.sh" script
 
 # Gitignore
-put the csv files in a file named "Data"
+put the csv files in a file named "data"
